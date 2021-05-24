@@ -1,21 +1,14 @@
 import json
+import os
 import time
 import requests
-import os
 
 
-def main(link, api_key, output_fp, response_fp):
-    print("\n\tESCANEO DE URL")
-    url_list = []
-    output_file = open(output_fp, 'a')
-    response_file = open(response_fp, 'a')
-    response = []
-    report_list = []
-    url_batch = []
-    url_batch.append(link)
-    response += scan(url_batch, api_key)
-    response_file.write('\n'.join(str(t) for t in response))
-    print ('Escaneo completo...')
+"""
+virustotal_scan
+~~~~~~~~~~~~~~~
+Programmatically scan URLs with virustotal.
+"""
 
 
 def scan(url_batch, api_key):
@@ -51,6 +44,19 @@ def report(scan_id_list, api_key):
             continue
     return report_list
 
+
+def main(link, api_key, output_fp, response_fp):
+    print("\n\tESCANEO DE URL")
+    url_list = []
+    output_file = open(output_fp, 'a')
+    response_file = open(response_fp, 'a')
+    response = []
+    report_list = []
+    url_batch = []
+    url_batch.append(link)
+    response += scan(url_batch, api_key)
+    response_file.write('\n'.join(str(t) for t in response))
+    print ('Escaneo completo...')
 
     for i in range(len(response)):
         if i % 4 == 0:

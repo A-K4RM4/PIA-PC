@@ -1,8 +1,7 @@
-from lxml import html
-from bs4 import BeautifulSoup
 import os
 import requests
-
+from lxml import html
+from bs4 import BeautifulSoup
 
 def scrapingImages(url):
     print("\n\tWEB SCRAPING")

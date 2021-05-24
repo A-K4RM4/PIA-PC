@@ -44,7 +44,7 @@ def get_exif_metadata(image_path):
 def printMeta():
     print("\n\tOBTENCION DE METADATA")
     print("\nInspeccionando la carpeta con imagenes de web scraping")
-    ruta = "C:\Imagenes"
+    ruta = "C:\PIA_PC\images"
     os.chdir(ruta)
     for root, dirs, files in os.walk(".", topdown=False):
         for name in files:
